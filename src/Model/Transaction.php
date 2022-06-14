@@ -45,6 +45,16 @@ class Transaction extends AbstractModel
     public $buyer = null;
 
     /**
+     * This container stores information about region-specific fees that are charged to
+     * sellers.<br/><br/>This is returned for fees (i.e., <b>FeeTypeEnum</b> values,)
+     * that are mandated by a seller's governing jurisdiction.<br/><br/>For
+     * example:<ul><li><code>INCOME_TAX_WITHHOLDING</code></li><li><code>TAX_DEDUCTION_AT_SOURCE</code></li><li><code>VAT_WITHHOLDING</code></li></ul>.
+     *
+     * @var \Ebay\Sell\Finances\Model\FeeJurisdiction
+     */
+    public $feeJurisdiction = null;
+
+    /**
      * The type of fee. For implementation help, refer to <a
      * href='https://developer.ebay.com/api-docs/sell/finances/types/api:FeeTypeEnum'>eBay
      * API documentation</a>.

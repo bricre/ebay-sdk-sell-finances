@@ -18,6 +18,14 @@ class Fee extends AbstractModel
     public $amount = null;
 
     /**
+     * Indicates the specific jurisdiction for the fee that has been deducted from the
+     * seller payour.
+     *
+     * @var \Ebay\Sell\Finances\Model\FeeJurisdiction
+     */
+    public $feeJurisdiction = null;
+
+    /**
      * A description of the fee that was deducted from the seller payout.
      *
      * @var string
