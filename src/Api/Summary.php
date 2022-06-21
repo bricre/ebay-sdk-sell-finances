@@ -3,6 +3,7 @@
 namespace Ebay\Sell\Finances\Api;
 
 use Ebay\Sell\Finances\Model\SellerFundsSummaryResponse;
+use OpenAPI\Runtime\UnexpectedResponse;
 
 class Summary extends AbstractAPI
 {
@@ -15,9 +16,9 @@ class Summary extends AbstractAPI
      * seller's account, no response payload is returned, and an http status code of
      * <code>204 - No Content</code> is returned instead.
      *
-     * @return SellerFundsSummaryResponse
+     * @return SellerFundsSummaryResponse|UnexpectedResponse
      */
-    public function get(): SellerFundsSummaryResponse
+    public function get()
     {
         return $this->request(
         'getSellerFundsSummary',

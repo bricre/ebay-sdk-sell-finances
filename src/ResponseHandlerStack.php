@@ -4,6 +4,7 @@ namespace Ebay\Sell\Finances;
 
 use OpenAPI\Runtime\ResponseHandler\GenericResponseHandler;
 use OpenAPI\Runtime\ResponseHandler\JsonResponseHandler;
+use OpenAPI\Runtime\ResponseHandler\UnexpectedResponseHandler;
 use OpenAPI\Runtime\ResponseHandlerStack\ResponseHandlerStack as BaseClass;
 
 class ResponseHandlerStack extends BaseClass
@@ -16,6 +17,7 @@ class ResponseHandlerStack extends BaseClass
         $jsonResponseHandler = new JsonResponseHandler();
         $jsonResponseHandler->setResponseTypes(new ResponseTypes());
         $handlers[] = $jsonResponseHandler;
+        $handlers[] = new UnexpectedResponseHandler();
         parent::__construct($handlers);
     }
 }

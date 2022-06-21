@@ -5,6 +5,7 @@ namespace Ebay\Sell\Finances\Api;
 use Ebay\Sell\Finances\Model\Payout as PayoutModel;
 use Ebay\Sell\Finances\Model\Payouts;
 use Ebay\Sell\Finances\Model\PayoutSummaryResponse;
+use OpenAPI\Runtime\UnexpectedResponse;
 
 class Payout extends AbstractAPI
 {
@@ -19,9 +20,9 @@ class Payout extends AbstractAPI
      *                          method can be used to retrieve the unique identifier of a payout, or the user
      *                          can check Seller Hub to get the payout ID.
      *
-     * @return PayoutModel
+     * @return PayoutModel|UnexpectedResponse
      */
-    public function get(string $payout_Id): PayoutModel
+    public function get(string $payout_Id)
     {
         return $this->request(
         'getPayout',
@@ -110,9 +111,9 @@ class Payout extends AbstractAPI
      *                       status. For implementation help, refer to eBay API documentation at
      *                       https://developer.ebay.com/api-docs/sell/finances/types/cos:SortField
      *
-     * @return Payouts
+     * @return Payouts|UnexpectedResponse
      */
-    public function gets(array $queries = []): Payouts
+    public function gets(array $queries = [])
     {
         return $this->request(
         'getPayouts',
@@ -164,9 +165,9 @@ class Payout extends AbstractAPI
      *                       implementation help, refer to eBay API documentation at
      *                       https://developer.ebay.com/api-docs/sell/finances/types/cos:FilterField
      *
-     * @return PayoutSummaryResponse
+     * @return PayoutSummaryResponse|UnexpectedResponse
      */
-    public function getSummary(array $queries = []): PayoutSummaryResponse
+    public function getSummary(array $queries = [])
     {
         return $this->request(
         'getPayoutSummary',

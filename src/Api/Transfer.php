@@ -3,6 +3,7 @@
 namespace Ebay\Sell\Finances\Api;
 
 use Ebay\Sell\Finances\Model\Transfer as TransferModel;
+use OpenAPI\Runtime\UnexpectedResponse;
 
 class Transfer extends AbstractAPI
 {
@@ -18,9 +19,9 @@ class Transfer extends AbstractAPI
      * @param string $transfer_Id the unique identifier of the <code>TRANSFER</code>
      *                            transaction type you wish to retrieve
      *
-     * @return TransferModel
+     * @return TransferModel|UnexpectedResponse
      */
-    public function get(string $transfer_Id): TransferModel
+    public function get(string $transfer_Id)
     {
         return $this->request(
         'getTransfer',

@@ -4,6 +4,7 @@ namespace Ebay\Sell\Finances\Api;
 
 use Ebay\Sell\Finances\Model\Transactions;
 use Ebay\Sell\Finances\Model\TransactionSummaryResponse;
+use OpenAPI\Runtime\UnexpectedResponse;
 
 class Transaction extends AbstractAPI
 {
@@ -139,9 +140,9 @@ class Transaction extends AbstractAPI
      *                       help, refer to eBay API documentation at
      *                       https://developer.ebay.com/api-docs/sell/finances/types/cos:SortField
      *
-     * @return Transactions
+     * @return Transactions|UnexpectedResponse
      */
-    public function gets(array $queries = []): Transactions
+    public function gets(array $queries = [])
     {
         return $this->request(
         'getTransactions',
@@ -258,9 +259,9 @@ class Transaction extends AbstractAPI
      *                       </li></ul> For implementation help, refer to eBay API documentation at
      *                       https://developer.ebay.com/api-docs/sell/finances/types/cos:FilterField
      *
-     * @return TransactionSummaryResponse
+     * @return TransactionSummaryResponse|UnexpectedResponse
      */
-    public function getSummary(array $queries = []): TransactionSummaryResponse
+    public function getSummary(array $queries = [])
     {
         return $this->request(
         'getTransactionSummary',
